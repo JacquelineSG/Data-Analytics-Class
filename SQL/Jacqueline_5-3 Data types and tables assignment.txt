@@ -1,0 +1,35 @@
+﻿Name: Jacqueline Santos Garcia
+
+
+
+
+1. Create a table that contains … 
+
+
+* First_name (VARCHAR 20)
+* Last_name (VARCHAR 50, NOT NULL)
+* Email_address (VARCHAR 355)
+* Address (VARCHAR 50)
+* City NOT NULL
+* State NOT NULL
+* Customer_ID PRIMARY KEY
+
+
+
+
+PASTE YOUR SQL: 
+
+
+CREATE TABLE customer_info (
+Customer_ID serial PRIMARY KEY,
+First_name VARCHAR(20) NOT NULL,
+last_name VARCHAR(50) NOT NULL,
+Email_address VARCHAR(355) UNIQUE NOT NULL,
+Phone CHAR(10) NOT NULL,
+Address VARCHAR(50) NOT NULL,
+City VARCHAR(50) NOT NULL,
+State VARCHAR(50) NOT NULL);
+
+
+SELECT *
+FROM customer_info;

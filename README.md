@@ -1,2 +1,4 @@
 # Data-Analytics-Class
-01/2022
+January 2022
+CUNY Microdential
+Hosted by Laguardia Community College 

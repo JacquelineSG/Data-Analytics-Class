@@ -1,0 +1,78 @@
+﻿Unit 5 Mini Project: Creating and inserting data
+
+
+Please copy your SQL below for each of the three tasks.
+
+
+* Create and populate a videos table. 
+   * This table should include a unique ID, the title of the video, the length in minutes, and the URL. 
+   * Populate the table with at least three related videos from YouTube or other publicly available resources.
+
+
+CREATE TABLE videos(
+video_ID serial PRIMARY KEY,
+title VARCHAR(100) NOT NULL,
+length VARCHAR(20) NOT NULL,
+url VARCHAR(255) NOT NULL);
+
+
+SELECT * FROM videos;
+
+
+INSERT INTO videos (title, length, url)
+VALUES ('What is SQL? [in 4 minutes for beginners]','4:25','https://www.youtube.com/watch?v=27axs9dO7AE&ab_channel=DanielleTh%C3%A9');
+
+
+INSERT INTO videos (title, length, url)
+VALUES ('What is Database & SQL','6:19','https://www.youtube.com/watch?v=FR4QIeZaPeM&ab_channel=Guru99'),
+('What is Python? Why Python is So Popular?','4:06','https://www.youtube.com/watch?v=Y8Tko2YC5hA&ab_channel=ProgrammingwithMosh');
+
+
+
+
+* Create and populate reviewers table.
+   * Create a second table that provides at least two user reviews for each of at least two of the videos. 
+   * These should be imaginary reviews that include columns for the user’s name (“Asher”, “John”, etc.), the rating (which could be NULL, or a number between 0 and 5), and a short text review (“Loved it!”).  There should be a column that links back to the ID column in the table of videos.
+
+
+CREATE TABLE reviewers(
+review_ID serial PRIMARY KEY,
+username VARCHAR NOT NULL,
+video_ID int,
+rating CHAR(1) NOT NULL,
+text_review VARCHAR,
+FOREIGN KEY (video_ID) REFERENCES videos(video_ID)
+);
+
+
+SELECT * FROM reviewers;
+
+
+INSERT INTO reviewers(username,video_id,rating,text_review)
+VALUES ('sally','1','4','Easy to understand'),
+('user123','3','2','okay video'),
+('T0NY','2','5','loved it!');
+
+
+
+
+
+
+* Report on Video Reviews.  
+   * Write a JOIN statement that shows information from both tables.
+   * Write at least one query showing analysis of the joined table.
+
+
+
+
+SELECT *
+FROM videos
+FULL OUTER JOIN reviewers
+ON videos.video_ID = reviewers.video_ID;
+
+
+SELECT *
+FROM videos
+INNER JOIN reviewers
+ON videos.video_ID = reviewers.video_ID
+ORDER BY rating DESC;

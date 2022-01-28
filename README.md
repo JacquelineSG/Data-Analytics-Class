@@ -1,4 +1,4 @@
 # Data-Analytics-Class
 January 2022
-CUNY Microdential
+CUNY Micro-credential
 Hosted by Laguardia Community College 
